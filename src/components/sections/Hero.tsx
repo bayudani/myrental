@@ -94,7 +94,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="initial"
               animate="animate"
-              className="flex flex-wrap gap-6"
+              className="flex flex-wrap gap-4 md:gap-6"
             >
               {[
                 { icon: Shield, text: 'Armada Terawat' },

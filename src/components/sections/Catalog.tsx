@@ -80,13 +80,13 @@ export default function Catalog() {
           ))}
         </div>
 
-        <div className="md:hidden" ref={emblaRef}>
-          <div className="flex gap-4">
-            {carData.map((car) => (
-              <div
-                key={car.id}
-                className="min-w-[280px] flex-shrink-0 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm"
-              >
+         <div className="md:hidden" ref={emblaRef}>
+            <div className="flex gap-4">
+              {carData.map((car) => (
+                <div
+                  key={car.id}
+                  className="min-w-[75vw] flex-shrink-0 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm"
+                >
                 <div className="relative mb-4 overflow-hidden rounded-xl bg-gray-50">
                   <img
                     src={car.image}
