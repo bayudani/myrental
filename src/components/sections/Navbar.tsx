@@ -110,7 +110,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/50 md:hidden"
+              className="fixed inset-0 z-40 bg-black/60 md:hidden"
               onClick={() => setOpen(false)}
             />
             <motion.div
@@ -118,7 +118,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed top-0 right-0 z-50 h-full w-72 bg-white shadow-2xl md:hidden"
+              className="fixed top-0 right-0 z-[60] h-full w-72 max-w-[85vw] bg-white shadow-2xl md:hidden"
             >
               <div className="flex h-16 items-center justify-between border-b border-gray-100 px-6">
                 <span className="text-lg font-bold text-gray-900">

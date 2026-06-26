@@ -19,18 +19,18 @@ export default function CTA() {
             <p className="mb-8 max-w-lg text-lg text-white/80">
               Hubungi kami sekarang dan dapatkan penawaran terbaik untuk rental mobil Anda. Tim kami siap melayani 24/7.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">
-                <Button variant="white" size="lg" className="gap-2">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button variant="white" size="lg" className="w-full gap-2 sm:w-auto">
                   Hubungi via WhatsApp
                   <ArrowRight className="h-5 w-5" />
                 </Button>
               </a>
-              <a href="tel:+6281234567890">
+              <a href="tel:+6281234567890" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-brand-600"
+                  className="w-full border-white/30 text-white hover:bg-white hover:text-brand-600 sm:w-auto"
                 >
                   Telepon Sekarang
                 </Button>

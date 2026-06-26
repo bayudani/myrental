@@ -70,19 +70,19 @@ export default function Hero() {
               variants={fadeUp}
               initial="initial"
               animate="animate"
-              className="mb-10 flex flex-wrap gap-4"
+              className="mb-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
             >
-              <a href="#catalog">
-                <Button size="lg" className="gap-2">
+              <a href="#catalog" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full gap-2 sm:w-auto">
                   Lihat Katalog
                   <ArrowRight className="h-5 w-5" />
                 </Button>
               </a>
-              <a href="tel:+6281234567890">
+              <a href="tel:+6281234567890" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-gray-900"
+                  className="w-full border-white/30 text-white hover:bg-white hover:text-gray-900 sm:w-auto"
                 >
                   Hubungi Kami
                 </Button>

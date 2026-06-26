@@ -48,6 +48,10 @@ export default function BentoFeatures() {
               className={cn(
                 'group relative overflow-hidden rounded-2xl p-6 shadow-sm transition-all duration-300 hover:shadow-lg md:p-8',
                 sizeClasses[feature.size],
+                i === bentoFeatures.length - 1 &&
+                  bentoFeatures.length % 2 === 1 &&
+                  feature.size === 'small' &&
+                  'col-span-2 md:col-span-1',
                 colorClasses[feature.color]
               )}
             >
