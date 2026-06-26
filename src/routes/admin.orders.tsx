@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { orders } from '../lib/admin-store'
 import { Trash2, Plus, X } from 'lucide-react'
 import type { Order } from '../lib/admin-store'
+import { ConfirmDialog } from '../components/ui/confirm-dialog'
 
 export const Route = createFileRoute('/admin/orders')({
   component: OrdersPage,
@@ -14,6 +15,7 @@ const packageOptions = ['Lepas Kunci', 'Include Supir', 'Include Supir + BBM']
 function OrdersPage() {
   const [list, setList] = useState<Order[]>(orders.getAll())
   const [showForm, setShowForm] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
   const [form, setForm] = useState({
     customerName: '',
     phone: '',
@@ -34,11 +36,11 @@ function OrdersPage() {
     refresh()
   }
 
-  const handleDelete = (id: string) => {
-    if (confirm('Hapus order ini?')) {
-      orders.delete(id)
-      refresh()
-    }
+  const executeDelete = () => {
+    if (!confirmDelete) return
+    orders.delete(confirmDelete)
+    setConfirmDelete(null)
+    refresh()
   }
 
   const handleStatus = (id: string, status: Order['status']) => {
@@ -48,6 +50,14 @@ function OrdersPage() {
 
   return (
     <div>
+      <ConfirmDialog
+        open={confirmDelete !== null}
+        title="Hapus Order"
+        message="Apakah kamu yakin ingin menghapus order ini? Tindakan ini tidak bisa dibatalkan."
+        onConfirm={executeDelete}
+        onCancel={() => setConfirmDelete(null)}
+      />
+
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="mb-1 text-2xl font-bold text-gray-900">Orders</h1>
@@ -189,7 +199,7 @@ function OrdersPage() {
                     </td>
                     <td className="px-6 py-4">
                       <button
-                        onClick={() => handleDelete(order.id)}
+                        onClick={() => setConfirmDelete(order.id)}
                         className="rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600"
                       >
                         <Trash2 className="h-4 w-4" />
