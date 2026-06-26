@@ -126,7 +126,7 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="container-main flex flex-col items-center justify-between gap-4 py-6 md:flex-row">
           <p className="text-sm text-gray-500">
-            © 2024 <a href="https://byvictech.site" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">byvictech.site</a>
+            © 2024 <a href="https://byvictech.site" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">byvictech.site</a>
           </p>
           <p className="text-sm text-gray-500">
             Premium Car Rental Service

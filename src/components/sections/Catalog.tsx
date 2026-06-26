@@ -80,7 +80,7 @@ export default function Catalog() {
           ))}
         </div>
 
-         <div className="md:hidden" ref={emblaRef}>
+         <div className="md:hidden overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
               {carData.map((car) => (
                 <div

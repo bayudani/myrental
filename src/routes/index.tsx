@@ -16,7 +16,7 @@ export const Route = createFileRoute('/')({
 
 function HomePage() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Navbar />
       <Hero />
       <Packages />

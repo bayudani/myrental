@@ -18,7 +18,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -67,7 +67,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <a href="tel:+6281234567890" className="md:hidden">
             <Button
               variant={scrolled ? 'default' : 'white'}
@@ -92,12 +92,14 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             className={cn(
-              'flex md:hidden items-center justify-center rounded-lg p-2 transition-colors',
-              scrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+              'flex md:hidden items-center justify-center rounded-lg p-2.5 transition-colors',
+              scrolled
+                ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                : 'bg-white/15 text-white hover:bg-white/25'
             )}
             aria-label="Toggle menu"
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
@@ -117,10 +119,10 @@ export default function Navbar() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed top-0 right-0 z-[60] h-full w-72 max-w-[85vw] bg-white shadow-2xl md:hidden"
+              transition={{ type: 'spring', damping: 28, stiffness: 300 }}
+              className="fixed top-0 right-0 z-[60] flex h-full w-72 max-w-[80vw] flex-col bg-white shadow-2xl md:hidden"
             >
-              <div className="flex h-16 items-center justify-between border-b border-gray-100 px-6">
+              <div className="flex h-16 shrink-0 items-center justify-between border-b border-gray-100 px-6">
                 <span className="text-lg font-bold text-gray-900">
                   My<span className="text-brand-600">Rental</span>
                 </span>
@@ -132,19 +134,23 @@ export default function Navbar() {
                   <X className="h-5 w-5" />
                 </button>
               </div>
-              <div className="flex flex-col gap-1 px-4 pt-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="rounded-xl px-4 py-3 text-base font-medium text-gray-700 transition-colors hover:bg-brand-50 hover:text-brand-600"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+
+              <div className="flex-1 overflow-y-auto px-4 py-4">
+                <div className="flex flex-col gap-1">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="rounded-xl px-4 py-3.5 text-base font-medium text-gray-700 transition-colors hover:bg-brand-50 hover:text-brand-600"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               </div>
-              <div className="border-t border-gray-100 px-6 pt-6 mt-4">
+
+              <div className="shrink-0 border-t border-gray-100 px-6 py-5">
                 <a href="tel:+6281234567890">
                   <Button className="w-full gap-2">
                     <Phone className="h-4 w-4" />

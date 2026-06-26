@@ -15,7 +15,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      className="relative flex min-h-screen items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
       <div
         className="absolute inset-0 opacity-30"
